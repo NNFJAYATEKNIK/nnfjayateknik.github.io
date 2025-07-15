@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Profile with Animations</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('output');
+                output.src = reader.result;
+                output.style.display = 'block';
+                output.classList.add('fade-in');
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="parallax">
+            <h1 class="fade-in">Welcome to Our Company</h1>
+            <nav class="fade-in">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>About Us</h2>
+            <p>We specialize in providing quality services. Our commitment to excellence sets us apart.</p>
+        </section>
+        <section>
+            <h2>Upload Your Image</h2>
+            <form>
+                <input type="file" accept="image/*" onchange="previewImage(event)">
+            </form>
+            <h3>Preview Image</h3>
+            <img id="output" style="display:none; width: 100%; max-width: 500px; margin-top: 20px;" />
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Our Company</p>
+    </footer>
+</body>
+</html>
